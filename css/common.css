@@ -2,15 +2,17 @@
 
 body {
   margin: 0;
+  margin-top: 110px;
   font-family: 'Noto Sans KR';
 }
 
 header {
+  top: 0px;
   position: fixed;
   height: 40px;
   width: 100%;
   border-bottom: 1px solid lightgray;
-  z-index: 2;
+  z-index: 3;
   background-color: white;
 }
 
@@ -72,13 +74,13 @@ header {
 }
 
 nav {
-  margin-top: 40px;
+  top: 40px;
   position: fixed;
   background-color: white;
   border-bottom: 1px solid lightgray;
   height: 70px;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -129,6 +131,7 @@ nav {
   border-bottom: 1px solid lightgray;
   display: none;
   justify-content: center;
+  background-color: white;
 }
 
 .nav-menu:hover .nav-category {
@@ -195,8 +198,9 @@ nav {
 }
 
 #login-div {
-  z-index: 3;
+  z-index: 100;
   position: fixed;
+  top: 0px;
   width: 100vw;
   height: 0px;
   overflow: hidden;
@@ -359,5 +363,91 @@ nav {
   }
   to {
     top: -100px;
+  }
+}
+
+article img {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  resize: both;
+  width: 95vw;
+}
+
+.article-content {
+  text-align: center;
+  padding-bottom: 180px;
+}
+
+.article-content h1 {
+  font-size: 45px;
+  margin: 0;
+  margin-top: 20px;
+  letter-spacing: -2px;
+  word-spacing: 3px;
+}
+
+.article-content p {
+  margin: 0;
+  font-size: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  letter-spacing: -2px;
+  word-spacing: 3px;
+}
+
+.article-button {
+  left: 50%;
+  margin-top: 20px;
+  transform: translate(-50%);
+  display: block;
+  position: absolute;
+  height: fit-content;
+  width: 175px;
+  z-index: 1;
+}
+
+.article-button-title:after {
+  content: "▶";
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.article-button-title, .article-button-content {
+  color: white;
+  display: block;
+  background-color: black;
+  box-sizing: border-box;
+  padding: 8px;
+  width: 160px;
+  border-radius: 50px;
+  transition: background-color 0.5s ease;
+}
+
+.article-button-content {
+  margin-top: 3px;
+  text-decoration: none;
+  display: none;
+}
+
+.article-button:hover .article-button-content {
+  display: block;
+}
+
+.article-button-content:hover, .article-button-title:hover {
+  background-color: rgba(0,0,0,0.5);
+  transition: background-color 0.5s ease;
+}
+
+.article-button:hover .article-button-title:after {
+  content: "▼";
+}
+
+@media only screen and (max-width: 1000px) {
+  nav, header {
+    display: none !important;
+  }
+  body {
+    margin-top: 0px !important;
   }
 }
